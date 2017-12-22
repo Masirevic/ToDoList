@@ -27,7 +27,7 @@ class CategoryViewController: UITableViewController {
       //MARK: - TableView Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories?.count ?? 1
+        return categories?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,15 +48,44 @@ class CategoryViewController: UITableViewController {
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 destinationVC.selectedCategory = categories?[indexPath.row]
+                
+                
+                let barBtn = UIBarButtonItem()
+                barBtn.title = ""
+                navigationItem.backBarButtonItem = barBtn
+                barBtn.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if let categoryForDeletion = categories?[indexPath.row] {
+            do {
+                try realm.write {
+                    realm.delete(categoryForDeletion)
+                }
+            } catch {
+                print(error)
+            }
+            
+            tableView.reloadData()
+        }
+        
+    }
+    
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        <#code#>
+//    }
+    
+    
 
     @IBAction func addBarButtonItem(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
             
@@ -68,7 +97,9 @@ class CategoryViewController: UITableViewController {
             
         }
         
+        
         alert.addAction(action)
+        alert.addAction(cancel)
         alert.addTextField { (field) in
             textField = field
             textField.placeholder = "Add a new category"

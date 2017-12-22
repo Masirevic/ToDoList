@@ -14,7 +14,7 @@ class ToDoListViewController: UITableViewController  {
     
     var todoItems: Results<Item>?
     let realm = try! Realm()
-    
+    @IBOutlet weak var searchBar: UISearchBar!
     var selectedCategory : Category? {
         didSet {
              loadItems ()
@@ -25,12 +25,13 @@ class ToDoListViewController: UITableViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
     print (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
     
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        searchBar.barTintColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,11 +53,12 @@ class ToDoListViewController: UITableViewController  {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        // print(itemArray[indexPath.row])
+        
         if let item = todoItems?[indexPath.row] {
             do {
             try realm.write {
-               // item.done = !item.done
-                realm.delete(item)
+               item.done = !item.done
+               // realm.delete(item)
             }
             } catch {
                 print(error)
@@ -68,12 +70,28 @@ class ToDoListViewController: UITableViewController  {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if let categoryForDeletion = todoItems?[indexPath.row] {
+            do {
+                try realm.write {
+                    realm.delete(categoryForDeletion)
+                }
+            } catch {
+                print(error)
+            }
+            
+            tableView.reloadData()
+        }
+        
+    }
+    
     //ADD NEW ITEMS
     @IBAction func addBtnPressed(_ sender: UIBarButtonItem) {
         
         var textField = UITextField ()
         
         let alert = UIAlertController(title: "Add New ToDo Item", message: "", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             // Add Button
             
@@ -101,6 +119,7 @@ class ToDoListViewController: UITableViewController  {
             textField = alertTextField
         }
         alert.addAction(action)
+        alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
         
     }
@@ -111,6 +130,13 @@ class ToDoListViewController: UITableViewController  {
 
         tableView.reloadData()
     }
+    
+    // MARK: - Segue to TextVC
+    
+    
+    
+    
+    
 }
 
 // MARK: - Search bar methods

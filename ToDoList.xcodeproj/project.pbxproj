@@ -14,8 +14,9 @@
 		88EB3DCE1FE9C457001506AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB3DCD1FE9C457001506AE /* AppDelegate.swift */; };
 		88EB3DD01FE9C457001506AE /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB3DCF1FE9C457001506AE /* ToDoListViewController.swift */; };
 		88EB3DD31FE9C457001506AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88EB3DD11FE9C457001506AE /* Main.storyboard */; };
-		88EB3DD51FE9C457001506AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88EB3DD41FE9C457001506AE /* Assets.xcassets */; };
 		88EB3DD81FE9C457001506AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88EB3DD61FE9C457001506AE /* LaunchScreen.storyboard */; };
+		88F8BCF11FECA42B000D1DF5 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F8BCF01FECA42B000D1DF5 /* Media.xcassets */; };
+		88F8BD111FECA4AE000D1DF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F8BD101FECA4AE000D1DF5 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +29,10 @@
 		88EB3DCD1FE9C457001506AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88EB3DCF1FE9C457001506AE /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		88EB3DD21FE9C457001506AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		88EB3DD41FE9C457001506AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88EB3DD71FE9C457001506AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88EB3DD91FE9C457001506AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88F8BCF01FECA42B000D1DF5 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		88F8BD101FECA4AE000D1DF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99BBEEA3788B714281B7F1F7 /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,9 +83,10 @@
 				88EB3DE11FE9E24F001506AE /* Data Model */,
 				88EB3DCD1FE9C457001506AE /* AppDelegate.swift */,
 				88EB3DD11FE9C457001506AE /* Main.storyboard */,
-				88EB3DD41FE9C457001506AE /* Assets.xcassets */,
 				88EB3DD61FE9C457001506AE /* LaunchScreen.storyboard */,
+				88F8BD101FECA4AE000D1DF5 /* Assets.xcassets */,
 				88EB3DD91FE9C457001506AE /* Info.plist */,
+				88F8BCF01FECA42B000D1DF5 /* Media.xcassets */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -184,7 +187,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				88EB3DD81FE9C457001506AE /* LaunchScreen.storyboard in Resources */,
-				88EB3DD51FE9C457001506AE /* Assets.xcassets in Resources */,
+				88F8BCF11FECA42B000D1DF5 /* Media.xcassets in Resources */,
+				88F8BD111FECA4AE000D1DF5 /* Assets.xcassets in Resources */,
 				88EB3DD31FE9C457001506AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4A2FYRX62X;
 				INFOPLIST_FILE = ToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ljubomir.ToDoList;
@@ -402,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4A2FYRX62X;
 				INFOPLIST_FILE = ToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ljubomir.ToDoList;
